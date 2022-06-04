@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anexar</title>
+</head>
+
+<body>
+    <fieldset>
+        <form>
+            <p>Item que quer colocar na lista?</p>
+            <input type="text" name="text" id="text">
+            <p>Escolha uma cor para letra.</p>
+            <input type="radio" name="cor" id="blue" value="blue"><label style="color: blue;">Azul</label> <br>
+            <input type="radio" name="cor" id="red" value="red"><label style="color: red;">Vermelho </label><br>
+            <input type="radio" name="cor" id="green" value="green"><label style="color: green;">Verde</label><br>
+        </form>
+        <ul id="mylist">
+            <li style="color: blueviolet;">Item</li>
+        </ul>
+        <button id="mybotton">Acrescentar</button>
+    </fieldset>
+    <script>
+        document.getElementById("mybotton").addEventListener("click", ChangeFunction);
+
+        function ChangeFunction() {
+            var q = document.createElement("li");
+            var tex = document.getElementById('text').value;
+            var t = document.createTextNode(tex);
+            q.appendChild(t);
+            document.getElementById('mylist').appendChild(q);
+            let cr = document.querySelector('input[name="cor"]:checked').value;
+            if (cr == 'green') {
+                q.style.color = 'green';
+            }
+            else if (cr == 'blue') {
+                q.style.color = 'blue';
+            }
+            else if (cr == 'red') {
+                q.style.color = 'red';
+            }
+        }
+    </script>
+
+</body>
+
+</html>
