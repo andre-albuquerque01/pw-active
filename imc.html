@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imc</title>
+</head>
+
+<body>
+    <form>
+        <p>Qual sua altura (metro e cm)?</p>
+        <input type="number" name="" id="altura" step="0.01">
+        <p>Qual seu peso?</p>
+        <input type="number" name="" id="peso" step="0.01"><br><br>
+        <button id="click" onclick="calculo()">Calcular</button>
+    </form>
+    <a href="index.html">Ir para o Append</a>
+    <script>
+        // document.getElementById('click')
+        // element.addEventListener('click', calculo);
+        console.log('entrou')
+        function calculo() {
+            console.log('entrou aqui')
+            let p = parseFloat(document.getElementById('peso').value);
+            let a = parseFloat(document.getElementById('altura').value);
+            let cor1 = document.getElementById('blue').value;
+            let cor2 = document.getElementById('red').value;
+            let cor3 = document.getElementById('green').value;
+            if (p == '' && a == '') {
+                alert('Não foi possivel fazer os calculos com valores nulos');
+            } else if (p == 0 && a == 0) {
+                alert('Não foi possivel fazer os calculos com valores zerados');
+            } else {
+                let cal = p / (a * a);
+                if (cal < 18.5) {
+                    alert('ABAIXO DO PESO')
+                }
+                else if (cal >= 18.5 && cal <= 24.9) {
+                    alert('NORMAL')
+                }
+                else if (cal >= 25 && cal <= 29.9) {
+                    alert('SOBREPESO, GRAU I')
+                }
+                else if (cal >= 30 && cal <= 39.9) {
+                    alert('OBESIDADE, GRAU II')
+                }
+                else if (cal >= 40) {
+                    alert('OBESIDADE GRAVE, GRAU II')
+                }
+            }
+
+        }
+    </script>
+   
+</body>
+
+</html>
